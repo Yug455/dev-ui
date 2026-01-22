@@ -1,15 +1,18 @@
 
 import { Profiler, useState } from "react"
-import Navbar from "./Navbar"
+import Navbar from "./components/Navbar"
 import { BrowserRouter,Routes,Route } from "react-router-dom";
-import Body from "./body";
-import Login  from "./Login";
-import Profile from "./Profile";
+import Body from "./components/Body";
+import Login  from "./components/Login";
+import Profile from "./components/Profile";
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
 function App() {
   const [count, setCount] = useState(0)
 
   return (
   <>
+  <Provider store={appStore}>
     <BrowserRouter basename="/">
     <Routes>
       <Route path="/" element={<Body/>}>
@@ -18,7 +21,7 @@ function App() {
       </Route>
     </Routes>
     </BrowserRouter>
-    
+    </Provider>
   </>
   )
 }
