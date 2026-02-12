@@ -32,10 +32,18 @@ const Connections = ()=>{
         return <div>No Connections found</div>
     }
 
-    return(<div>
+    return(<div className="flex flex-col h-screen items-center mx-20 ">
         <div>Connections</div>
         <div>{connections.map((conn)=>{
-           return <div>{conn.FirstName}</div>
+           return (<div className="border border-amber-400 my-7  w-[500%]">
+           <div className="border border-black my-7 rounded-2xl">{conn.FirstName + " "+ conn.LastName}</div>
+                <div className="border border-black rounded-2xl">{conn.age && conn.Gender && (<span>{conn.Age} {conn.Gender}</span>)}</div>
+                </div>
+
+                
+           )
+
+
         })}</div>
     </div>
        
