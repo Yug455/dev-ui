@@ -11,7 +11,7 @@ const Login=()=>{
   const navigate= useNavigate()
     const [EmailId,setEmailId] = useState("mainahibatauga@gmail.com")
     const [Password,setPassword] = useState("N7!pRz@4qVb#T1mgpsntL")
-    
+    const [error,setError]= useState("")
 // making api call 
    const handlelogin = async () => {
    
@@ -29,6 +29,7 @@ const Login=()=>{
     dispatch(addUser(res.data))
     navigate("/")
       }catch(err){
+        setError(err.response.data.message)
         console.log(err);
       }
     }
@@ -80,7 +81,9 @@ const Login=()=>{
                 pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
                 title="Must be more than 8 characters, including number, lowercase letter, uppercase letter"
             />
+            
         </label>
+        <p className="text-red-500">{error}</p>
         <p className="validator-hint hidden">
         Must be more than 8 characters, including
         <br />At least one number <br />At least one lowercase letter <br />At least one uppercase letter
