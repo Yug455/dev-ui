@@ -9,7 +9,8 @@ import { Provider } from "react-redux";
 import appStore from "./utils/appStore";
 import Feed from "./components/Feed";
 import Connections from "./components/Connections";
-
+import Requests from "./components/Requests";
+import Chat from "./components/chat"
 function App() {
   const [count, setCount] = useState(0)
 
@@ -23,6 +24,8 @@ function App() {
       <Route path="/Login" element={<Login></Login>}> </Route>
       <Route path="/Profile" element={<Profile></Profile>}></Route>
       <Route path="/Connections" element={<Connections></Connections>}></Route>
+       <Route path="/request" element={<Requests></Requests>}></Route>
+       <Route path="/chat/:targetuserId" element={<Chat></Chat>}></Route>
       </Route>
     </Routes>
     </BrowserRouter>
